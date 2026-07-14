@@ -177,6 +177,7 @@ MonoBehaviour:
     m_Bits: 64
   _grabedItemMoveSpeed: 50
   _explosionRadius: 10
+  _explosionForce: 1000
 --- !u!1 &610420204
 GameObject:
   m_ObjectHideFlags: 0
