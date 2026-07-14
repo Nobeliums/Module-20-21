@@ -55,7 +55,8 @@ public class MouseInteraction : MonoBehaviour
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, _groundLayers));
 		{
-			RaycastHit[] hits = Physics.SphereCastAll(hit.point, _explosionRadius, Vector3.up);
+			RaycastHit[] hits = Physics.SphereCastAll(hit.point, _explosionRadius, Vector3.up,
+				_explosionRadius, _pickableLayers);
 
 			foreach (var hited in hits)
 			{
