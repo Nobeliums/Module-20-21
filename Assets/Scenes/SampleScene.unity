@@ -166,13 +166,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42dfe0db687485eac575de9d55c8233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickableLayers:
+  _itemsLayers:
     serializedVersion: 2
     m_Bits: 128
   _groundLayers:
     serializedVersion: 2
     m_Bits: 256
-  _groundGraberLayers:
+  _graberLayers:
     serializedVersion: 2
     m_Bits: 64
   _grabedItemMoveSpeed: 50
