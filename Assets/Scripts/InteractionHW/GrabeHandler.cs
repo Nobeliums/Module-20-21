@@ -7,21 +7,19 @@ public class GrabeHandler
 
 	private float _grabedItemMoveSpeed;
 	private IPickable _grabedItem;
-	private InputHandler _input;
 
 	public GrabeHandler(LayerMask itemsLayers, LayerMask graberLayers, float grabedItemMoveSpeed, InputHandler input)
 	{
 		_itemsLayers = itemsLayers;
 		_graberLayers = graberLayers;
 		_grabedItemMoveSpeed = grabedItemMoveSpeed;
-		_input = input;
 	}
 
 	public bool TryGetPickable(out IPickable item)
 	{
 		item = null;
 
-		RaycastHit hit = _input.GetMousePositionRaycast(_itemsLayers);
+		RaycastHit hit = InputHandler.GetMousePositionRaycast(_itemsLayers);
 
 		if (hit.collider != null)
 			hit.collider.TryGetComponent(out item);
@@ -34,7 +32,7 @@ public class GrabeHandler
 		if (_grabedItem == null)
 			return;
 
-		RaycastHit hit = _input.GetMousePositionRaycast(_graberLayers);
+		RaycastHit hit = InputHandler.GetMousePositionRaycast(_graberLayers);
 		
 		Vector3 direction = Vector3.MoveTowards(_grabedItem.GameObject.transform.position, hit.point,
 			_grabedItemMoveSpeed * Time.fixedDeltaTime);

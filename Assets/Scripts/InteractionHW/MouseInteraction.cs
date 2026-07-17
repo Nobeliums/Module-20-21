@@ -40,16 +40,16 @@ public class MouseInteraction : MonoBehaviour
 
 	private void ProcessExploder()
 	{
-		if (_input.IsMouseButtonDown(RightMouseButton))
+		if (InputHandler.IsMouseButtonDown(RightMouseButton))
 		{
-			RaycastHit mousePosition = _input.GetMousePositionRaycast(_groundLayers);
+			RaycastHit mousePosition = InputHandler.GetMousePositionRaycast(_groundLayers);
 			_exploder.CreateExplosion(mousePosition.point);
 		}
 	}
 
 	private void ProcessGraber()
 	{
-		if (_input.IsMouseButtonDown(LeftMouseButton))
+		if (InputHandler.IsMouseButtonDown(LeftMouseButton))
 		{
 			if (_graber.TryGetPickable(out IPickable item))
 			{
@@ -57,7 +57,7 @@ public class MouseInteraction : MonoBehaviour
 			}
 		}
 
-		if (_input.IsMouseButtonUp(LeftMouseButton))
+		if (InputHandler.IsMouseButtonUp(LeftMouseButton))
 		{
 			_graber.UnGrabePickable();
 		}

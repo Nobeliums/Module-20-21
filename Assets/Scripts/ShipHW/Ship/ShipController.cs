@@ -9,17 +9,10 @@ public class ShipController : MonoBehaviour
 
 	[SerializeField] private float _rotationSpeed;
 
-	private InputHandler _input;
-
-	private void Awake()
-	{
-		_input = new InputHandler();
-	}
-
 	private void Update()
 	{
-		ProcessRotationTo(_sail, _input.GetSailRotationInput());
-		ProcessRotationTo(_ship, _input.GetShipRotationInput());
+		ProcessRotationTo(_sail, InputHandler.GetSailRotationInput());
+		ProcessRotationTo(_ship, InputHandler.GetShipRotationInput());
 	}
 
 	private void ProcessRotationTo(IRotatable rotatable, float input)

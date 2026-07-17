@@ -4,37 +4,43 @@ public class InputHandler
 {
 	private const string SailRotationAxisName = "Vertical";
 	private const string ShipRotationAxisName = "Horizontal";
+	private const KeyCode CameraChangeButton = KeyCode.C;
 
-	public float GetSailRotationInput()
+	public static float GetSailRotationInput()
 	{
 		return Input.GetAxis(SailRotationAxisName);
 	}
 
-	public float GetShipRotationInput()
+	public static float GetShipRotationInput()
 	{
 		return Input.GetAxis(ShipRotationAxisName);
 	}
 
-	public bool IsMouseButtonDown(int mouseButton)
+	public static bool IsMouseButtonDown(int mouseButton)
 	{
 		return Input.GetMouseButtonDown(mouseButton);
 	}
 
-	public bool IsMouseButtonPressed(int mouseButton)
+	public static bool IsMouseButtonPressed(int mouseButton)
 	{
 		return Input.GetMouseButton(mouseButton);
 	}
 
-	public bool IsMouseButtonUp(int mouseButton)
+	public static bool IsMouseButtonUp(int mouseButton)
 	{
 		return Input.GetMouseButtonUp(mouseButton);
 	}
 
-	public RaycastHit GetMousePositionRaycast(LayerMask layer)
+	public static RaycastHit GetMousePositionRaycast(LayerMask layer)
 	{
 		Ray mousePositionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 		Physics.Raycast(mousePositionRay, out RaycastHit hit, Mathf.Infinity, layer);
 		return hit;
+	}
+
+	public static bool IsCameraChangeButtonPressed()
+	{
+		return Input.GetKeyDown(CameraChangeButton);
 	}
 }
